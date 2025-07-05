@@ -35,7 +35,7 @@ public class PetpoojaService {
             restaurant.setContact(dto.getContact());
             restaurant.setLatitude(dto.getLatitude());
             restaurant.setLongitude(dto.getLongitude());
-            restaurant.setMOP(dto.getMop());
+            restaurant.setMop(dto.getMop());
 
             restaurantRepo.save(restaurant);
           }
@@ -50,7 +50,7 @@ public class PetpoojaService {
             category.setCategoryid(dto.getCategoryid());
             category.setCategoryname(dto.getCategoryname());
             category.setActive(dto.getActive());
-            category.setRestaurantid(dto.getRestaurantid());
+            category.setRestid(dto.getRestid());
 
             categoryRepo.save(category);
           }
@@ -63,7 +63,7 @@ public class PetpoojaService {
           if (dto != null) {
             ItemMaster item = new ItemMaster();
             item.setItemid(dto.getItemid());
-            item.setName(dto.getItemname());
+            item.setItemname(dto.getItemname());
             item.setCustomize(dto.getCustomize());
             item.setActive(dto.getActive());
             item.setCatid(dto.getItem_categoryid());
