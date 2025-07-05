@@ -12,7 +12,7 @@ public class ItemMaster {
     private String restid;
     private String catid;
     private String name;
-    private String image;
-    private boolean customize;
-    private boolean isEnable;
+    private String active;
+    private String customize;
+
 }
