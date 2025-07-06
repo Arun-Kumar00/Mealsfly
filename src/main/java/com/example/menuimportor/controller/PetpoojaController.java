@@ -18,7 +18,7 @@ public class PetpoojaController {
         try {
             petpoojaService.saveMenu(menuDTO);
             return ResponseEntity.ok()
-                    .body("{\"message\":\"Menu saved successfully.\",\"http_code\":200,\"error\":\"\"}");
+                    .body("{\"Menu saved successfully.");
         } catch (Exception e) {
             return ResponseEntity.status(500).body(
                     "{\"message\":\"Error saving menu.\",\"http_code\":500,\"error\":\"" + e.getMessage() + "\"}");
