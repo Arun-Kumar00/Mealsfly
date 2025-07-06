@@ -6,6 +6,6 @@ import lombok.Data;
 public class CategoryDTO {
     private String categoryid;
     private String categoryname;
-    private Boolean active;
+    private String active;
     private String restid;
 }

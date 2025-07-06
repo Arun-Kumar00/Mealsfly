@@ -14,7 +14,7 @@ public class ItemMaster {
     private String itemname;
     private String catid;
     private String restid;
-    private Boolean active;
+    private String active;
     private String customize;
 
 }

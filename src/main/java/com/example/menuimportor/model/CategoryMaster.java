@@ -10,7 +10,7 @@ public class CategoryMaster {
 
     @Id
     private String categoryid;
-    private Boolean active;
+    private String active;
     private String categoryname;
     private String restid;
 }

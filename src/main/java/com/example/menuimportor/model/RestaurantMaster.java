@@ -10,7 +10,7 @@ public class RestaurantMaster {
 
     @Id
     private String restaurantid;
-    private Boolean active;
+    private String active;
     private String restaurantname;
     private String address;
     private String contact;
