@@ -9,7 +9,6 @@ import lombok.Data;
 public class ItemUnit1 {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
 
     private String itemid;
