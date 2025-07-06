@@ -98,6 +98,8 @@ import com.example.menuimportor.repository.ItemUnit1Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
@@ -122,12 +124,12 @@ public class PetpoojaService {
           dto.getRestaurants().stream().map(r -> {
             RestaurantMaster restaurant = new RestaurantMaster();
             restaurant.setRestaurantid(r.getRestaurantid());
-            restaurant.setRestaurantname(r.getRestaurantname());
-            restaurant.setAddress(r.getAddress());
-            restaurant.setContact(r.getContact());
-            restaurant.setLatitude(r.getLatitude());
-            restaurant.setLongitude(r.getLongitude());
-            restaurant.setMop(r.getMop());
+            restaurant.setRestaurantname(r.getDetails().getRestaurantname());
+            restaurant.setAddress(r.getDetails().getAddress());
+            restaurant.setContact(r.getDetails().getContact());
+            restaurant.setLatitude(r.getDetails().getLatitude());
+            restaurant.setLongitude(r.getDetails().getLongitude());
+            restaurant.setMop("0");
             restaurant.setActive(r.getActive());
             return restaurant;
           }).collect(Collectors.toList()));
@@ -141,7 +143,10 @@ public class PetpoojaService {
             category.setCategoryid(c.getCategoryid());
             category.setCategoryname(c.getCategoryname());
             category.setActive(c.getActive());
-            category.setRestid(c.getRestid());
+            String restaurantid1 = dto.getRestaurants() != null && !dto.getRestaurants().isEmpty()
+                ? dto.getRestaurants().get(0).getRestaurantid()
+                : null;
+            category.setRestid(restaurantid1);
             return category;
           }).collect(Collectors.toList()));
     }
@@ -153,25 +158,34 @@ public class PetpoojaService {
             ItemMaster item = new ItemMaster();
             item.setItemid(i.getItemid());
             item.setItemname(i.getItemname());
-            item.setCustomize(i.getCustomize());
+            item.setCustomize("1");
             item.setActive(i.getActive());
             item.setCatid(i.getItem_categoryid());
-            item.setRestid(i.getRestaurantid());
+            String restaurantid1 = dto.getRestaurants() != null && !dto.getRestaurants().isEmpty()
+                ? dto.getRestaurants().get(0).getRestaurantid()
+                : null;
+            item.setRestid(restaurantid1);
             return item;
           }).collect(Collectors.toList()));
     }
 
-    // Save Item Units
-    if (dto.getItemUnits() != null) {
-      itemUnitRepository.saveAll(
-          dto.getItemUnits().stream().map(u -> {
+    if (dto.getItems() != null) {
+      List<ItemUnit1> itemUnits = new ArrayList<>();
+
+      for (ItemDTO itemDTO : dto.getItems()) {
+        if (itemDTO.getVariation() != null) {
+          for (ItemUnitDTO variation : itemDTO.getVariation()) {
             ItemUnit1 unit = new ItemUnit1();
-            unit.setId(u.getItem_unit_id());
-            unit.setItemid(u.getItem_id());
-            unit.setUnit(u.getUnit());
-            unit.setAmount(u.getPrice());
-            return unit;
-          }).collect(Collectors.toList()));
+            unit.setItemid(variation.getItem_unit_id());
+            unit.setId(itemDTO.getItemid()); // from parent item
+            unit.setUnit(variation.getName());
+            unit.setAmount(variation.getPrice());
+            itemUnits.add(unit);
+          }
+        }
+      }
+
+      itemUnitRepository.saveAll(itemUnits);
     }
   }
 }

@@ -10,6 +10,7 @@ com/example/menuimportor/repository/ItemMasterRepository.class
 com/example/menuimportor/repository/ItemUnit1Repository.class
 com/example/menuimportor/dto/PetpoojaPushMenuDTO.class
 com/example/menuimportor/repository/CategoryMasterRepository.class
+com/example/menuimportor/dto/RestaurantDetailsDTO.class
 com/example/menuimportor/service/PetpoojaService.class
 com/example/menuimportor/config/RestTemplateConfig.class
 com/example/menuimportor/controller/PetpoojaController.class

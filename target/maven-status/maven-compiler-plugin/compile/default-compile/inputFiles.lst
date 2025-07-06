@@ -6,6 +6,7 @@
 /Users/arunkumar/menuimportor/src/main/java/com/example/menuimportor/dto/ItemUnitDTO.java
 /Users/arunkumar/menuimportor/src/main/java/com/example/menuimportor/dto/PetpoojaPushMenuDTO.java
 /Users/arunkumar/menuimportor/src/main/java/com/example/menuimportor/dto/RestaurantDTO.java
+/Users/arunkumar/menuimportor/src/main/java/com/example/menuimportor/dto/RestaurantDetailsDTO.java
 /Users/arunkumar/menuimportor/src/main/java/com/example/menuimportor/model/CategoryMaster.java
 /Users/arunkumar/menuimportor/src/main/java/com/example/menuimportor/model/ItemMaster.java
 /Users/arunkumar/menuimportor/src/main/java/com/example/menuimportor/model/ItemUnit1.java
