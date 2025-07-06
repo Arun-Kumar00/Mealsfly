@@ -8,6 +8,7 @@ import java.util.List;
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class PetpoojaPushMenuDTO {
+    private String success;
     private List<RestaurantDTO> restaurants;
     private List<CategoryDTO> categories;
     private List<ItemDTO> items;
